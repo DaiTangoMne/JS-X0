@@ -77,18 +77,32 @@ function checkWin(){
         if (field[win[i][0][0]][win[i][0][1]] == field[win[i][1][0]][win[i][1][1]] &&
             field[win[i][0][0]][win[i][0][1]] == field[win[i][2][0]][win[i][2][1]] &&
              field[win[i][1][0]][win[i][1][1]] != 0)
-            stopGame();
+            stopGame(i);
     }
 }
 
-function stopGame(){
-    context.fillStyle = "red";
-	context.font = "60px Arial";
-    if (choice)
-        context.fillText("Нолики выиграли!!!", 0, 300);
-    else
-        context.fillText("Крестики выиграли!!!", 0, 300);
+function stopGame(pos){
+    if(pos == 7) console.log("afafafafaf");
+    var coords = [{x1: 50, y1: 100, x2: 550, y2: 100}, 
+        {x1: 50, y1: 300, x2: 550, y2: 300},
+        {x1: 50, y1: 500, x2: 550, y2: 500},
+        {x1: 100, y1: 50, x2: 100, y2: 550},
+        {x1: 300, y1: 50, x2: 300, y2: 550},
+        {x1: 500, y1: 50, x2: 500, y2: 550},
+        {x1: 50, y1: 550, x2: 550, y2: 50},
+        {x1: 50, y1: 50, x2: 550, y2: 550},
+    ]
+    context.beginPath();
+    context.lineWidth = 10;
+    context.strokeStyle = 'red';
+    context.moveTo(coords[pos].x1, coords[pos].y1);
+    context.lineTo(coords[pos].x2, coords[pos].y2);
+    context.stroke();
     clearInterval(game);
+}
+
+function bot(){
+    
 }
 
 function draw(){
