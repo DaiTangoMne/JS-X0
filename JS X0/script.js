@@ -6,7 +6,7 @@ const groundImg = new Image();
 groundImg.src = "img/ground.png";
 
 const crossImg = new Image();
-crossImg.src = "img/X.png";
+crossImg.src = "/img/x.png";
 
 const zeroImg = new Image();
 zeroImg.src = "img/0.png";
